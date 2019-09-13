@@ -1,3 +1,21 @@
+/***********************************************************************
+// OOP244 Workshop 1 DIY: Compiling modular source code
+// File	w1_diy.cpp
+// Version 1.1
+// Date	2019/09/02
+// Author	Fardad Soleimanloo
+// Description
+// This provides some source code in a single file to break
+// into modules and compile together
+//
+// Revision History
+// -----------------------------------------------------------
+// Name            Date            Reason
+// Fardad       2019/09/02     fixed matrix warning and added
+//                             sorted message
+/////////////////////////////////////////////////////////////////
+***********************************************************************/
+
 #define _CRT_SECURE_NO_WARNINGS
 
 #include <iostream>
@@ -31,7 +49,7 @@ long long getLongLong(long long min, long long max, const char* valueName) {
       }
       else {
          if (!valid(min, max, val)) {
-            cout << "Invalid " << valueName << "!" << endl 
+            cout << "Invalid " << valueName << "!" << endl
             << "The "<< valueName <<" must be between " << min << " and " << max << ": ";
          }
          else {
@@ -95,7 +113,7 @@ void writeContacts(Contact* contacts, int cntno, const char* filename) {
 }
 // displays the user interface menu
 int menu() {
-   cout << endl 
+   cout << endl
         <<"1- Add Phone Record " << endl;
    cout << "2- Search           " << endl;
    cout << "3- Sort             " << endl;
@@ -104,9 +122,11 @@ int menu() {
    cout << "> ";
    return int(getLongLong(0, 4, "option"));
 }
+
 int compare(const Contact* A, const Contact* B) {
    return strcmp(A->name, B->name);
 }
+
 void sort(Contact c[], int n) {
    Contact temp;
    for (int i = n - 1; i > 0; i--) {
@@ -119,6 +139,7 @@ void sort(Contact c[], int n) {
       }
    }
 }
+
 
 void toLowerCase(char* lowerCase, const char* str) {
    int i;
@@ -170,14 +191,14 @@ void phoneDir(const char* title, const char* filename) {
    int noOfRecs = readContacts(C, filename);
    int noOfSrchs;
    cout << title << ".................." << endl;
-   while (option = menu()) {
-      switch (option){
+   do {
+      switch (option = menu()) {
       case 0:
          cout << "Goodbye!" << endl;
          break;
       case 1: // add
          getContact(&temp);
-         C[noOfRecs] = temp; 
+         C[noOfRecs] = temp;
          noOfRecs++;
          changed = true;
          break;
@@ -194,13 +215,14 @@ void phoneDir(const char* title, const char* filename) {
          break;
       case 3:  // Sort
          sort(C, noOfRecs);
+         cout << "Sorted!" << endl;
          changed = true;
          break;
       case 4:
          printContacts(C, noOfRecs);
          break;
       }
-   }
+   } while (option);
    if (changed) {
       cout << endl << "The phone diecotry has changed!" << "Save changes? (Y/N): ";
       if (yes()) {
@@ -211,8 +233,8 @@ void phoneDir(const char* title, const char* filename) {
          cout << "Changes aborted!!" << endl;
       }
    }
-   cout << "Goodbye!" << endl;
 }
+
 
 
 int main() {
