@@ -39,7 +39,7 @@ int main(void) {
          break;
       case 1: // open parking
          if (isEmpty(SenePark)) {
-            cout << "Please enter the number of avaliable spots.\n> ";
+            cout << "Please enter the number of available spots.\n> ";
             read(noOfSpots, 1, 100, "Invalid Number of spots.\n> ");
             openParking(SenePark, noOfSpots);
          }
@@ -87,3 +87,77 @@ int menu() {
    read(option, 0, 3, "Invalid Option.\n> ");
    return option;
 }
+
+/*
+Sample Execution:
+SenePark Valet Parking
+
+1- Open Parking
+2- Park A Car
+3- Return A Car
+0- Close Parking
+> 2
+Parking is closed!
+1- Open Parking
+2- Park A Car
+3- Return A Car
+0- Close Parking
+> 1
+Please enter the number of available spots.
+> 3
+1- Open Parking
+2- Park A Car
+3- Return A Car
+0- Close Parking
+> 3
+What is your spot number?
+> 2
+There is no car parked at spot 2
+1- Open Parking
+2- Park A Car
+3- Return A Car
+0- Close Parking
+> 2
+Make and Model: BMW 320
+License Plate: ABC123
+Your car is parked in spot number 1
+1- Open Parking
+2- Park A Car
+3- Return A Car
+0- Close Parking
+> 2
+Make and Model: Tesla Model 3
+License Plate: GVXT123
+Your car is parked in spot number 2
+1- Open Parking
+2- Park A Car
+3- Return A Car
+0- Close Parking
+> 2
+Make and Model: Honda Civic
+License Plate: QWE123
+Your car is parked in spot number 3
+1- Open Parking
+2- Park A Car
+3- Return A Car
+0- Close Parking
+> 2
+Sorry Parking is full!
+1- Open Parking
+2- Park A Car
+3- Return A Car
+0- Close Parking
+> 3
+What is your spot number?
+> 2
+Returning Tesla Model 3, plate number: GVXT123
+1- Open Parking
+2- Park A Car
+3- Return A Car
+0- Close Parking
+> 0
+Returning BMW 320, plate number: ABC123
+Returning Honda Civic, plate number: QWE123
+Parking is closed now! Goodbye...
+
+*/
