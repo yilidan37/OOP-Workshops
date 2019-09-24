@@ -123,11 +123,11 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClInclude Include="Mark.h" />
-  </ItemGroup>
-  <ItemGroup>
     <ClCompile Include="Mark.cpp" />
     <ClCompile Include="markTester.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="Mark.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
